@@ -40,8 +40,7 @@ document.querySelector(".check").addEventListener("click", function () {
 			document.querySelector(".score").textContent = score;
 		} else {
 			displayMessage("💥 You lost the game!");
-			score = 0;
-			document.querySelector(".score").textContent = score;
+			document.querySelector(".score").textContent = 0;
 		}
 	}
 });
