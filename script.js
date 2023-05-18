@@ -33,12 +33,15 @@ document.querySelector(".check").addEventListener("click", function () {
 			highScore = score;
 			document.querySelector(".highscore").textContent = highScore;
 		}
-	} else {
+	} else if (guess !== randomNumber) {
 		if (score > 1) {
+			// document.querySelector('.message').textContent =
+			// guess > randomNumber ? '📈 Too high!' : '📉 Too low!';
 			displayMessage(guess > randomNumber ? "📈 Too high!" : "📉 Too low!");
 			score--;
 			document.querySelector(".score").textContent = score;
 		} else {
+			// document.querySelector('.message').textContent = '💥 You lost the game!';
 			displayMessage("💥 You lost the game!");
 			document.querySelector(".score").textContent = 0;
 		}
