@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 // console.log(document.querySelector('.message').textContent);
 // document.querySelector('.message').textContent = 'correst answer';
@@ -15,43 +15,45 @@ let score = 20;
 let highScore = 0;
 
 function displayMessage(message) {
-  document.querySelector('.message').textContent = message;
+	document.querySelector(".message").textContent = message;
 }
 
-document.querySelector('.check').addEventListener('click', function () {
-  const guess = Number(document.querySelector('.guess').value);
-  console.log(typeof guess);
-  if (!guess) {
-    displayMessage('⛔️ No number!');
-  } else if (guess === randomNumber) {
-    document.querySelector('.message').textContent = '🎉 Correct Answer!';
-    document.querySelector('.number').textContent = randomNumber;
-    document.querySelector('body').style.backgroundColor = '#60b347';
-    // document.querySelector('.number').style.width = '30rem';
+document.querySelector(".check").addEventListener("click", function () {
+	const guess = Number(document.querySelector(".guess").value);
+	console.log(typeof guess);
+	if (!guess) {
+		displayMessage("⛔️ No number!");
+	} else if (guess === randomNumber) {
+		document.querySelector(".message").textContent = "🎉 Correct Answer!";
+		document.querySelector(".number").textContent = randomNumber;
+		document.querySelector("body").style.backgroundColor = "#60b347";
+		// document.querySelector('.number').style.width = '30rem';
 
-    if (score > highScore) {
-      highScore = score;
-      document.querySelector('.highscore').textContent = highScore;
-    }
-  } else {
-    if (score > 1) {
-      displayMessage(guess > randomNumber ? '📈 Too high!' : '📉 Too low!');
-      score--;
-      document.querySelector('.score').textContent = score;
-    } else {
-      displayMessage('💥 You lost the game!');
-    }
-  }
+		if (score > highScore) {
+			highScore = score;
+			document.querySelector(".highscore").textContent = highScore;
+		}
+	} else {
+		if (score > 1) {
+			displayMessage(guess > randomNumber ? "📈 Too high!" : "📉 Too low!");
+			score--;
+			document.querySelector(".score").textContent = score;
+		} else {
+			displayMessage("💥 You lost the game!");
+			score--;
+			document.querySelector(".score").textContent = score;
+		}
+	}
 });
 
-document.querySelector('.again').addEventListener('click', function () {
-  score = 20;
-  randomNumber = Math.floor(Math.random() * 20) + 1;
-  document.querySelector('.message').textContent = 'Start Guessing...';
-  document.querySelector('.guess').value = null;
-  document.querySelector('.score').textContent = score;
-  document.querySelector('.number').textContent = '?';
+document.querySelector(".again").addEventListener("click", function () {
+	score = 20;
+	randomNumber = Math.floor(Math.random() * 20) + 1;
+	document.querySelector(".message").textContent = "Start Guessing...";
+	document.querySelector(".guess").value = null;
+	document.querySelector(".score").textContent = score;
+	document.querySelector(".number").textContent = "?";
 
-  document.querySelector('body').style.backgroundColor = '#222';
-  //   document.querySelector('.number').style.width = '15rem';
+	document.querySelector("body").style.backgroundColor = "#222";
+	//   document.querySelector('.number').style.width = '15rem';
 });
